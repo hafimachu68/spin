@@ -1,0 +1,311 @@
+.spin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.spin-wheel {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 5px solid #111110;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background: conic-gradient(
+        #f94144 0deg 15deg, #f3722c 15deg 30deg, #f8961e 30deg 45deg,
+        #f9844a 45deg 60deg, #f9c74f 60deg 75deg, #90be6d 75deg 90deg,
+        #43aa8b 90deg 105deg, #577590 105deg 120deg, #4d908e 120deg 135deg,
+        #277da1 135deg 150deg, #577590 150deg 165deg, #4d908e 165deg 180deg,
+        #90be6d 180deg 195deg, #f9c74f 195deg 210deg, #f9844a 210deg 225deg,
+        #f8961e 225deg 240deg, #f3722c 240deg 255deg, #f94144 255deg 270deg,
+        #90be6d 270deg 285deg, #4d908e 285deg 300deg, #577590 300deg 315deg,
+        #f3722c 315deg 330deg, #f9c74f 330deg 345deg, #f8961e 345deg 360deg
+    );
+}
+
+.wheel-segment {
+    position: absolute;
+    width: 65%;
+    height: 50%;
+    left: 50%;
+    transform-origin: 0 100%;
+}
+
+.segment-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.spin-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #111110;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.spin-button:hover {
+    background-color: #45a049;
+}
+
+.spin-wheel.spinning {
+    animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pools container as a flex row */
+.pools-container {
+    display: flex;
+    flex-direction: column; /* Stack pools vertically */
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    gap: 20px; /* Space between Pool-1 and Pool-2 */
+}
+
+.pool-row {
+    width: 100%;
+}
+
+
+.pool-box {
+    border: 2px solid #edf0ed;
+    border-radius: 10px;
+    padding: 20px;
+    background-color:#111110;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.pool-box h2 {
+    color: #4CAF50;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.groups {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for each group */
+    gap: 10px;
+    width: 100%;
+}
+
+.group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 100px;
+    word-wrap: break-word;
+}
+
+.group-container h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.group-container ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+}
+
+.group-container li {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+}
+
+
+.finish-btn {
+    background-color: #ff6347;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 20px;
+}
+
+.finish-btn:hover {
+    background-color: #e55347;
+}
+.match-box {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.match-item-box {
+    padding: 10px;
+    background-color: #e6f7ff;
+    border: 1px solid #b3d7ff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+
+
+.match-box p {
+    margin: 5px 0;
+}
+
+.show-matches-button {
+    font-size: 1.5em;
+    padding: 1em 2em;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.show-fixture-button {
+    font-size: 1.5em;
+    padding: 1em 2em;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fixture-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.close-button {
+    margin-top: 10px;
+    padding: 0.5em 1em;
+    background-color: #f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.fixture-container {
+    display: flex;
+    gap: 10rem;
+    margin-top: 20px;
+}
+
+.fixture-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Same as .pool-box for uniformity */
+    /* height: 400px; Matches the height of .pool-box */
+}
+
+.fixture-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.fixture-group {
+    margin-bottom: 15px;
+}
+
+.fixture-group h3 {
+    font-size: 16px;
+    color: #555;
+}
+
+.fixture-group p {
+    font-size: 14px;
+    color: #333;
+    padding-left: 10px;
+}
+.styled-table {
+    width: 100%;
+    /* height: 100%; */
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+.container-fluid {
+    background: linear-gradient(to bottom, hsl(122, 39%, 49%), #ffffff);
+}
+.s2{
+    background: linear-gradient(to bottom, hsl(122, 39%, 49%), #ffffff);
+
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.styled-table th {
+    background-color: hsl(122, 39%, 49%);
+    color: white;
+}
+
+.table-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-row:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.3s ease;
+}
